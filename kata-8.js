@@ -6,22 +6,20 @@ const repeatNumbers = function(data) {
   let answer = '';
 
   //If there is more then one array set inside data, then we use this loop to add commas between the number strings
-  if(data.length > 1){
-    for(let i = 0; i < data.length; i++){
-      for(let j = 1; j <= data[i][1]; j++){
-        answer += data[i][0].toString(); 
+  if (data.length > 1) {
+    for (let i = 0; i < data.length; i++) {
+      for (let j = 1; j <= data[i][1]; j++) {
+        answer += data[i][0].toString();
       }
       //add this if statement to make sure the comma isn't added after the very last set of repeated numbers
-      if(i < data.length - 1){
+      if (i < data.length - 1) {
         answer += ', ';
       }
-    }  
-  }
-  //else, when there is only one number to be repeated, we don't need the additional comma string conditional
-  else{
-    for(let i = 0; i < data.length; i++){
-      for(let j = 1; j <= data[i][1]; j++){
-        answer += data[i][0].toString(); 
+    }
+  } else {
+    for (let i = 0; i < data.length; i++) {
+      for (let j = 1; j <= data[i][1]; j++) {
+        answer += data[i][0].toString();
       }
     }
   }

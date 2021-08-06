@@ -8,14 +8,12 @@ const urlEncode = function(text) {
   //Loop through text string and seach for spaces that are not at index 0 or at last index position
   //Build a newText string from the text passed to the fuction, and insert %20 where there are spaces within the string, and not at the first or last positions
 
-  for(let i = 0; i < text.length; i++){
-    if((text.charAt(i) === ' ' && i === 0) || (text.charAt(i) === ' ' && i === text.length - 1)){
+  for (let i = 0; i < text.length; i++) {
+    if ((text.charAt(i) === ' ' && i === 0) || (text.charAt(i) === ' ' && i === text.length - 1)) {
       newText += '';
-    } 
-    else if(text.charAt(i) === ' '){
+    } else if (text.charAt(i) === ' ') {
       newText += '%20';
-    }
-    else{
+    } else {
       newText += text.charAt(i);
     }
   }

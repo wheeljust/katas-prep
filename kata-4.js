@@ -7,8 +7,8 @@ const instructorWithLongestName = function(instructors) {
   let answer = {};
 
   // Loop through each obj and check the name length, update number of characters and the answer variable
-  for(inst of instructors){
-    if(inst['name'].length > numLetters){
+  for (const inst of instructors) {
+    if (inst['name'].length > numLetters) {
       numLetters = inst['name'].length;
       answer = inst;
     }
@@ -23,6 +23,7 @@ console.log(instructorWithLongestName([
   {name: "Ophilia", course: "Web"},
   {name: "Donald", course: "Web"}
 ]));
+
 console.log(instructorWithLongestName([
   {name: "Matthew", course: "Web"},
   {name: "David", course: "iOS"},

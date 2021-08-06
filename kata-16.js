@@ -3,180 +3,171 @@ Kata 16 - changing test strings based on the type of case requested
 */
 
 //Defined a series of helper functions for each case type
-const toCamel = function(str){
+const toCamel = function(str) {
   let newStr = '';
-  for(let i = 0; i < str.length; i++){
-    if(str.charAt(i) === ' '){
+  for (let i = 0; i < str.length; i++) {
+    if (str.charAt(i) === ' ') {
       newStr += str.charAt(i + 1).toUpperCase();
       i++;
-    } 
-    else{
+    } else {
       newStr += str.charAt(i);
     }
   }
   return newStr;
-}
+};
 
-const toPascal = function(str){
+const toPascal = function(str) {
   let newStr = '';
-  for(let i = 0; i < str.length; i++){
-    if(i === 0){
+  for (let i = 0; i < str.length; i++) {
+    if (i === 0) {
       newStr += str.charAt(i).toUpperCase();
-    }
-    else if(str.charAt(i) === ' '){
+    } else if (str.charAt(i) === ' ') {
       newStr += str.charAt(i + 1).toUpperCase();
       i++;
-    } 
-    else{
+    } else {
       newStr += str.charAt(i);
     }
   }
   return newStr;
-}
+};
 
-const toSnake = function(str){
+const toSnake = function(str) {
   let newStr = '';
-  for(let i = 0; i < str.length; i++){
-    if(str.charAt(i) === ' '){
+  for (let i = 0; i < str.length; i++) {
+    if (str.charAt(i) === ' ') {
       newStr += '_';
-    } 
-    else{
+    } else {
       newStr += str.charAt(i);
     }
   }
   return newStr;
-}
+};
 
-const toKebab = function(str){
+const toKebab = function(str) {
   let newStr = '';
-  for(let i = 0; i < str.length; i++){
-    if(str.charAt(i) === ' '){
+  for (let i = 0; i < str.length; i++) {
+    if (str.charAt(i) === ' ') {
       newStr += '-';
-    } 
-    else{
+    } else {
       newStr += str.charAt(i);
     }
   }
   return newStr;
-}
+};
 
-const toTitle = function(str){
+const toTitle = function(str) {
   let newStr = '';
-  for(let i = 0; i < str.length; i++){
-    if(i === 0){
+  for (let i = 0; i < str.length; i++) {
+    if (i === 0) {
       newStr += str.charAt(i).toUpperCase();
-    }
-    else if(str.charAt(i) === ' '){
+    } else if (str.charAt(i) === ' ') {
       newStr += ' ' + str.charAt(i + 1).toUpperCase();
       i++;
-    } 
-    else{
+    } else {
       newStr += str.charAt(i);
     }
   }
   return newStr;
-}
+};
 
-const capVowels = function(str){
+const capVowels = function(str) {
   let newStr = '';
-  for(let i = 0; i < str.length; i++){
-    if(str.charAt(i) === 'a' || str.charAt(i) === 'e' || str.charAt(i) === 'i' || str.charAt(i) === 'o' || str.charAt(i) === 'u'){
+  for (let i = 0; i < str.length; i++) {
+    if (str.charAt(i) === 'a' || str.charAt(i) === 'e' || str.charAt(i) === 'i' || str.charAt(i) === 'o' || str.charAt(i) === 'u') {
       newStr += str.charAt(i).toUpperCase();
-    }
-    else{
+    } else {
       newStr += str.charAt(i);
     }
   }
   return newStr;
-}
+};
 
-const capConst = function(str){
+const capConst = function(str) {
   let newStr = '';
-  for(let i = 0; i < str.length; i++){
-    if(!(str.charAt(i) === 'a' || str.charAt(i) === 'e' || str.charAt(i) === 'i' || str.charAt(i) === 'o' || str.charAt(i) === 'u')){
+  for (let i = 0; i < str.length; i++) {
+    if (!(str.charAt(i) === 'a' || str.charAt(i) === 'e' || str.charAt(i) === 'i' || str.charAt(i) === 'o' || str.charAt(i) === 'u')) {
       newStr += str.charAt(i).toUpperCase();
-    }
-    else{
+    } else {
       newStr += str.charAt(i);
     }
   }
   return newStr;
-}
+};
 
-const upperCase = function(str){
+const upperCase = function(str) {
   let newStr = '';
-  for(let i = 0; i < str.length; i++){
+  for (let i = 0; i < str.length; i++) {
     newStr += str.charAt(i).toUpperCase();
   }
   return newStr;
-}
+};
 
-const lowerCase = function(str){
+const lowerCase = function(str) {
   let newStr = '';
-  for(let i = 0; i < str.length; i++){
+  for (let i = 0; i < str.length; i++) {
     newStr += str.charAt(i).toLowerCase();
   }
   return newStr;
-}
+};
 
 //MAIN function for this exercise
 
 const makeCase = function(input, cases) {
   //Set up a statement to determine what types of cases are being requested, store all case types in an array
   let caseTypes = [];
-  if(typeof cases === 'string'){
+  if (typeof cases === 'string') {
     caseTypes.push(cases);
-  } else{
-    for(c of cases){
+  } else {
+    for (const c of cases) {
       caseTypes.push(c);
     }
   }
 
   let newText = input;
   //First priority cases
-  for(type of caseTypes){
-    switch(type){
-      case 'camel':
-        newText = toCamel(newText);
-        break;
-      case 'pascal':
-        newText = toPascal(newText);
-        break;
-      case 'snake':
-        newText = toSnake(newText);
-        break;
-      case 'kebab':
-        newText = toKebab(newText);
-        break;
-      case 'title':
-        newText = toTitle(newText);
-        break;
+  for (const type of caseTypes) {
+    switch (type) {
+    case 'camel':
+      newText = toCamel(newText);
+      break;
+    case 'pascal':
+      newText = toPascal(newText);
+      break;
+    case 'snake':
+      newText = toSnake(newText);
+      break;
+    case 'kebab':
+      newText = toKebab(newText);
+      break;
+    case 'title':
+      newText = toTitle(newText);
+      break;
     }
   }
   //Second priority cases
-  for(type of caseTypes){
-    switch(type){
-      case 'vowel':
-        newText = capVowels(newText);
-        break;
-      case 'consonant':
-        newText = capConst(newText);
-        break;
+  for (const type of caseTypes) {
+    switch (type) {
+    case 'vowel':
+      newText = capVowels(newText);
+      break;
+    case 'consonant':
+      newText = capConst(newText);
+      break;
     }
   }
   //Third priority cases
-  for(type of caseTypes){
-    switch(type){
-      case 'upper':
-        newText = upperCase(newText);
-        break;
-      case 'lower':
-        newText = lowerCase(newText);
-        break;
+  for (const type of caseTypes) {
+    switch (type) {
+    case 'upper':
+      newText = upperCase(newText);
+      break;
+    case 'lower':
+      newText = lowerCase(newText);
+      break;
     }
   }
   return newText;
-}
+};
 
 
 

@@ -5,15 +5,13 @@ Kata 9 - converting a normal string into camelCase text
 const camelCase = function(input) {
   let newText = '';
 
-  for(let i = 0; i < input.length; i++){
-    
+  for (let i = 0; i < input.length; i++) {
+
     //If there is a space, skip to the next character in the string and make it uppercase, then add (+1) to i to skip over the next character in the loop and avoid duplication
-    if(input.charAt(i) === ' '){
+    if (input.charAt(i) === ' ') {
       newText += input.charAt(i + 1).toUpperCase();
       i++;
-    } 
-
-    else{
+    } else {
       newText += input.charAt(i);
     }
   }

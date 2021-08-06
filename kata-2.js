@@ -4,20 +4,20 @@ Kata 2 - adding numbers in a matrix if they match a given condition (odd or even
 
 const conditionalSum = function(values, condition) {
   let answer = 0;
-  
+
   // Check for even condition, then loop through array to add only even numbers
-  if(condition === "even"){
-    for(val of values){
-      if(val % 2 === 0){
+  if (condition === "even") {
+    for (const val of values) {
+      if (val % 2 === 0) {
         answer += val;
       }
     }
   }
 
   // Check for odd condition then loop through array and add together only odd numbers
-  if(condition === "odd"){
-    for(val of values){
-      if(val % 2 !== 0){
+  if (condition === "odd") {
+    for (const val of values) {
+      if (val % 2 !== 0) {
         answer += val;
       }
     }
