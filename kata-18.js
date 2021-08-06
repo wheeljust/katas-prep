@@ -10,17 +10,17 @@ const squareCode = function(message) {
   let secretMsg = [];
 
   //make an array of substrings, where the ammount of characters in each substring is equal to numCols
-  
-  for(let i = 0; i < text.length; i += numCols){
+
+  for (let i = 0; i < text.length; i += numCols) {
     let count = numCols + i;
-    sqArr.push(text.substring(i,count));
+    sqArr.push(text.substring(i, count));
   }
 
   //Use a nested for loop to build the coded strings. The j loop takes the letter at character index i of each element (j) in the sqArr, and then pushes the final string to the secret message array. Then we clear the tempString, index i up by 1 and repeat.
 
-  for(let i = 0; i < numCols; i++){
+  for (let i = 0; i < numCols; i++) {
     let tempStr = '';
-    for(let j = 0; j < sqArr.length; j++){
+    for (let j = 0; j < sqArr.length; j++) {
       tempStr += sqArr[j].charAt(i);
     }
     secretMsg.push(tempStr);
